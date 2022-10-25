@@ -56,9 +56,11 @@ const chechAnswer = (el, audio) => {
       } else {
         element.style.border = "5px dashed red";
       }
+      element.parentNode.style.pointerEvents="none"
       setTimeout(() => {
         element.parentNode.remove();
-      }, 200);
+      }, 5000);
+      
     });
   });
 };
