@@ -51,7 +51,7 @@ export let singerDetails = [
       "./image/greatwhite.jpeg",
       "./image/lagunsband.jpg",
     ],
-    correct: 3,
+    correct: 0,
     audio: "./songs/1.mp3",
   },
   {
@@ -90,8 +90,8 @@ export let singerDetails = [
   {
     id: 9,
     img: [
-      "./image/britneyspears.jpeg",
-      "./image/jenniferlopez.jpeg",
+      "./image/circusofpowerband.jpg",
+      "./image/lagunsband.jpg",
       "./image/Nightwish.jpg",
       "./image/Rammstein.jpg",
     ],
@@ -127,7 +127,7 @@ export let singerDetails = [
       "./image/britneyspears.jpeg",
       "./image/jenniferlopez.jpeg",
       "./image/ChrisIsaak.jpg",
-      "./image/Rammstein.jpg",
+      "./image/lagunsband.jpg",
     ],
     correct: 2,
     audio: "./songs/10.mp3",
