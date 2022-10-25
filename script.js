@@ -15,7 +15,6 @@ const moveButton = () => {
 };
 const loadObjects = (item) => {
   var timer = 0;
-  console.log(item[xindex]);
   item.forEach((el) => {
     setTimeout(() => {
       loadImages(el);
