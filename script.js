@@ -36,14 +36,14 @@ const loadImages = (image) => {
 const loadSongs = (song) => {
   const audio = new Audio(song.audio);
   audio.play();
-  chechAnswer(song, audio);
+  checkAnswer(song, audio);
   setTimeout(() => {
     audio.pause();
     audio.currentTime = 0;
   }, 6500);
 };
 
-const chechAnswer = (el, audio) => {
+const checkAnswer = (el, audio) => {
   let imageClick = document.querySelectorAll(".targt");
   imageClick.forEach((element, ids) => {
     element.addEventListener("click", () => {
