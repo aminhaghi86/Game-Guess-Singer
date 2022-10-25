@@ -35,21 +35,21 @@ export let singerDetails = [
   {
     id: 4,
     img: [
-      "./image/britneyspears.jpeg",
-      "./image/jenniferlopez.jpeg",
-      "./image/madonna.jpg",
+      "./image/circusofpowerband.jpg",
+      "./image/greatwhite.jpeg",
       "./image/Rammstein.jpg",
+      "./image/lagunsband.jpg",
     ],
-    correct: 3,
+    correct: 2,
     audio: "./songs/AMERIKA.mp3",
   },
   {
     id: 5,
     img: [
+      "./image/gunaneoses.jpg",
       "./image/circusofpowerband.jpg",
       "./image/greatwhite.jpeg",
       "./image/lagunsband.jpg",
-      "./image/gunaneoses.jpg",
     ],
     correct: 3,
     audio: "./songs/1.mp3",
