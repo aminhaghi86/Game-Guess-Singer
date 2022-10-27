@@ -18,35 +18,28 @@ const loadContent = () => {
    </div>
   `;
   const audio = new Audio(item.audio);
+
   audio.play();
     document.querySelectorAll('.targt').forEach((el,i) => {
         el.addEventListener('click',()=>{
           if(i===item.correct){
-            setTimeout(() => {
-              score.style.color = 'green'
-            }, 100);
-            setTimeout(() => {
-              score.style.color = 'black'
-            }, 1000);
-            scorepoint++;
+        
+            scorepoint+=1;
             score.innerHTML = `SCORE : ${scorepoint}`
-          }else {
-            setTimeout(() => {
-              score.style.color = 'red'
-            }, 100);
-            setTimeout(() => {
-              score.style.color = 'black'
-            }, 1000);
           }
-          currentNumber+=1;
           audio.pause();
-          audio.currentTime=0;
+          audio.currentTime=0
+          currentNumber+=1;
+     
           loadContent()
         })
+        setTimeout(function() {
+          audio.pause();
+          audio.currentTime=0
+          currentNumber += 1;
+          loadContent();
+      }, 6000);
     });
-    setTimeout(function() {
-      currentNumber += 1;
-      loadContent();
-  }, 7500);
+
 }
 buttonStart.addEventListener("click", loadContent);
