@@ -1,5 +1,5 @@
 import { singerDetails } from "./data.js";
-let contents = document.getElementById("contents");
+  let contents = document.getElementById("contents");
 let scorepoint = 0;
 let score = document.getElementById("score");
 let buttonStart = document.getElementById("btn");
@@ -44,6 +44,9 @@ const loadContent = () => {
           loadContent()
         })
     });
-
+    setTimeout(function() {
+      currentNumber += 1;
+      loadContent();
+  }, 7500);
 }
 buttonStart.addEventListener("click", loadContent);
