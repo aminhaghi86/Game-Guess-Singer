@@ -12,7 +12,7 @@ const start = () => {
   if (currentNumber < singerDetails.length) {
     let item = singerDetails[currentNumber];
     // item.img.sort( () => Math.random()- .5 );randomize later
-    console.log(item);
+    // console.log(item);
     contents.innerHTML = `
     <div class="image">
        <img class="targt" src="${item.img[0]}" alt="#">
@@ -36,7 +36,7 @@ const start = () => {
 //
 const clickImage = (item, audio) => {
   let imagesTarget = document.querySelectorAll(".targt");
-  console.log(imagesTarget);
+  // console.log(imagesTarget);
   imagesTarget.forEach((el, i) => {
     el.addEventListener("click", () => {
       console.log("clicked");
