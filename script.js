@@ -6,7 +6,7 @@ let currentNumber = 0;
 let scorepoint = 0;
 var timer;
 //
-const render = () => {
+const start = () => {
   buttonStart.style.transform = "translateY(-200%)";
   buttonStart.innerHTML = "ENJOY!";
   const item = singerDetails[currentNumber];
@@ -22,11 +22,8 @@ const render = () => {
   const audio = new Audio(item.audio);
   audio.play();
   clickImage(item, audio);
-   timer = setTimeout(() => {
-    currentNumber += 1;
-    clearTimeout(timer);
-    audio.pause();
-    render()
+  timer = setTimeout(() => {
+    render(audio);
   }, 6000);
 };
 const clickImage = (item, audio) => {
@@ -35,17 +32,20 @@ const clickImage = (item, audio) => {
   imagesTarget.forEach((el, i) => {
     el.addEventListener("click", () => {
       console.log("clicked");
-      clearTimeout(timer)
-      audio.pause();
-      audio.currentTime = 0;
+      render(audio);
       if (i === item.correct) {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
-      currentNumber += 1;
-      render();
+
       console.log(singerDetails);
     });
   });
 };
-buttonStart.addEventListener("click", render);
+const render = (audio) => {
+  clearTimeout(timer);
+  audio.pause();
+  currentNumber += 1;
+  start();
+};
+buttonStart.addEventListener("click", start);
