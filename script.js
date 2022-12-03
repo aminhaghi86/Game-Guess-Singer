@@ -9,7 +9,8 @@ var timer;
 const start = () => {
   buttonStart.style.transform = "translateY(-200%)";
   buttonStart.innerHTML = "ENJOY!";
-  const item = singerDetails[currentNumber];
+  let item = singerDetails[currentNumber];
+  // item.img.sort( () => Math.random()- .5 );randomize later
   console.log(item);
   contents.innerHTML = `
     <div class="image">
@@ -26,6 +27,7 @@ const start = () => {
     render(audio);
   }, 6000);
 };
+//
 const clickImage = (item, audio) => {
   let imagesTarget = document.querySelectorAll(".targt");
   console.log(imagesTarget);
@@ -42,6 +44,7 @@ const clickImage = (item, audio) => {
     });
   });
 };
+//
 const render = (audio) => {
   clearTimeout(timer);
   audio.pause();
