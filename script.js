@@ -4,8 +4,9 @@ let score = document.getElementById("score");
 let buttonStart = document.getElementById("btn");
 let currentNumber = 0;
 let scorepoint = 0;
+var timer;
 //
-const startFunction = async () => {
+const render = () => {
   buttonStart.style.transform = "translateY(-200%)";
   buttonStart.innerHTML = "ENJOY!";
   const item = singerDetails[currentNumber];
@@ -20,30 +21,31 @@ const startFunction = async () => {
     `;
   const audio = new Audio(item.audio);
   audio.play();
-   clickImage(item,audio);
-  setTimeout(() => {
-    audio.pause();
-    audio.currentTime = 0;
+  clickImage(item, audio);
+   timer = setTimeout(() => {
     currentNumber += 1;
-  startFunction();
+    clearTimeout(timer);
+    audio.pause();
+    render()
   }, 6000);
 };
-const clickImage = (item,audio) => {
+const clickImage = (item, audio) => {
   let imagesTarget = document.querySelectorAll(".targt");
-console.log(imagesTarget);
+  console.log(imagesTarget);
   imagesTarget.forEach((el, i) => {
-    el.addEventListener("click",async () => {
+    el.addEventListener("click", () => {
       console.log("clicked");
+      clearTimeout(timer)
       audio.pause();
-      audio.currentTime=0;
+      audio.currentTime = 0;
       if (i === item.correct) {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
       currentNumber += 1;
-       startFunction();
+      render();
       console.log(singerDetails);
     });
   });
 };
-buttonStart.addEventListener("click", startFunction);
+buttonStart.addEventListener("click", render);
