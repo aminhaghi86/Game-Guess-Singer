@@ -6,6 +6,7 @@ body {
   background-color: #f2efea;
   max-height: 80vh;
 }
+
 .div-btn {
   display: flex;
   flex-direction: column;
@@ -49,3 +50,51 @@ body {
 .image img:hover {
 cursor: pointer;
 }
+
+/* progress bar */
+.progressbar {
+  width: 80%;
+  margin: 0 auto;
+  border: solid 3px #000;
+  border-radius: 1rem;
+}
+.progressbar .inner {
+  height: 3rem;
+  border-radius: 1rem;
+  animation: progressbar-countdown;
+  /* Placeholder, this will be updated using javascript */
+  animation-duration: 6s;
+  /* We stop in the end */
+  animation-iteration-count: 1;
+  /* Stay on pause when the animation is finished finished */
+  animation-fill-mode: forwards;
+  /* We start paused, we start the animation using javascript */
+  animation-play-state: paused;
+  /* We want a linear animation, ease-out is standard */
+  animation-timing-function: linear;
+}
+@keyframes progressbar-countdown {
+  0% {
+    width: 100%;
+    background: #0F0;
+  }
+  25%{
+    background: rgb(93, 148, 37);
+   
+    width: 75%;
+  }
+  50%{
+    background: rgb(125, 134, 47);
+    width: 50%;
+
+  }
+  75%{
+    background: rgb(245, 192, 2);
+    width: 25%;
+  }
+  100% {
+    width: 0%;
+    background: #F00;
+  }
+}
+/* end progress bar */
