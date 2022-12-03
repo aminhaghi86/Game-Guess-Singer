@@ -29,7 +29,7 @@ const start = () => {
       render(audio);
     }, 8000);
   } else {
-    console.log("finished");
+    // console.log("finished");
     window.location.relaod();
   }
 };
@@ -39,13 +39,13 @@ const clickImage = (item, audio) => {
   // console.log(imagesTarget);
   imagesTarget.forEach((el, i) => {
     el.addEventListener("click", () => {
-      console.log("clicked");
+      // console.log("clicked");
       render(audio);
       if (i === item.correct) {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
-      console.log(singerDetails);
+      // console.log(singerDetails);
     });
   });
 };
