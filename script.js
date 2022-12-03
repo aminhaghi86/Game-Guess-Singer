@@ -9,10 +9,11 @@ var timer;
 const start = () => {
   buttonStart.style.transform = "translateY(-200%)";
   buttonStart.innerHTML = "ENJOY!";
-  let item = singerDetails[currentNumber];
-  // item.img.sort( () => Math.random()- .5 );randomize later
-  console.log(item);
-  contents.innerHTML = `
+  if (currentNumber < singerDetails.length) {
+    let item = singerDetails[currentNumber];
+    // item.img.sort( () => Math.random()- .5 );randomize later
+    console.log(item);
+    contents.innerHTML = `
     <div class="image">
        <img class="targt" src="${item.img[0]}" alt="#">
        <img class="targt" src="${item.img[1]}" alt="#">
@@ -20,12 +21,17 @@ const start = () => {
        <img class="targt" src="${item.img[3]}" alt="#">
      </div>
     `;
-  const audio = new Audio(item.audio);
-  audio.play();
-  clickImage(item, audio);
-  timer = setTimeout(() => {
-    render(audio);
-  }, 6000);
+    const audio = new Audio(item.audio);
+    audio.play();
+    clickImage(item, audio);
+    timer = setTimeout(() => {
+      render(audio);
+    }, 6000);
+  } else {
+    console.log('finished');
+    window.location.relaod();
+    
+  }
 };
 //
 const clickImage = (item, audio) => {
@@ -39,7 +45,6 @@ const clickImage = (item, audio) => {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
-
       console.log(singerDetails);
     });
   });
