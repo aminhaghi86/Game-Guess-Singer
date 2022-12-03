@@ -24,10 +24,10 @@ const start = () => {
     const audio = new Audio(item.audio);
     audio.play();
     clickImage(item, audio);
-    createProgressbar("progressbar3", "8s");
+    createProgressbar("progressbar3", "15s");
     timer = setTimeout(() => {
       render(audio);
-    }, 8000);
+    }, 15000);
   } else {
     // console.log("finished");
     window.location.relaod();

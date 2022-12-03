@@ -4,7 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #f2efea;
-  max-height: 80vh;
+  max-height: 100vh;
 }
 
 .div-btn {
@@ -63,7 +63,7 @@ cursor: pointer;
   border-radius: 1rem;
   animation: progressbar-countdown;
   /* Placeholder, this will be updated using javascript */
-  animation-duration: 6s;
+  animation-duration: 15s;
   /* We stop in the end */
   animation-iteration-count: 1;
   /* Stay on pause when the animation is finished finished */
