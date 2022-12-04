@@ -15,9 +15,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 8rem;
   background-color: rgb(0, 0, 0);
   width: 100vw;
   transition: all 1s ease;
+}
+.first h1 {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  letter-spacing: 2px;
 }
 .first form {
   background-color: rgb(0, 0, 0);
@@ -27,9 +34,10 @@ body {
   justify-content: center;
   gap: 1rem;
 }
-.first form input,button {
-  padding: .5rem 1rem;
-  border-radius: .3rem;
+.first form input,
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
 }
 .first form button {
   background-color: rgb(11, 255, 11);
