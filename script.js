@@ -13,7 +13,10 @@ form.onsubmit = (e) => {
   e.preventDefault();
   const inputEl = form.elements.username.value;
   if (inputEl !== "" && inputEl !== null) {
-    const username = inputEl;
+    const username = {
+      username: inputEl,
+      score: 0,
+    };
     sessionStorage.setItem("username", JSON.stringify(username));
     document.querySelector(".first").style.transform = "translateY(-100%)";
   } else {
@@ -32,7 +35,7 @@ form.onsubmit = (e) => {
 const start = () => {
   const uservalue = JSON.parse(sessionStorage.getItem("username"));
   const userEl = document.getElementById("user");
-  userEl.innerHTML = `USERNAME : ${uservalue}`;
+  userEl.innerHTML = `USER:${uservalue.username}`;
   buttonStart.style.transform = "translateY(-800%)";
   buttonStart.innerHTML = "ENJOY!";
   if (currentNumber <= singerDetails.length + 1) {
@@ -68,6 +71,15 @@ const clickImage = (item, audio) => {
 
       if (i === item.correct) {
         scorepoint += 1;
+        const uservalue = JSON.parse(sessionStorage.getItem("username"));
+        uservalue.score = scorepoint;
+        sessionStorage.setItem(
+          "username",
+          JSON.stringify({
+            username: uservalue.username,
+            score: uservalue.score,
+          })
+        );
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
       render(audio);
