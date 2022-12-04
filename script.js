@@ -32,6 +32,10 @@ form.onsubmit = (e) => {
   }
 };
 //
+const resetSessionStorage = () => {
+  sessionStorage.removeItem("username");
+};
+//
 const message = () => {
   contents.style.display = "none";
   document.getElementById("progressbar3").style.display = "none";
@@ -40,6 +44,7 @@ const message = () => {
   resetBtn.innerHTML = "Play Again";
   parentDiv.append(resetBtn);
   resetBtn.onclick = () => {
+    resetSessionStorage();
     window.location.reload();
   };
 };
