@@ -9,7 +9,7 @@ var timer;
 const start = () => {
   buttonStart.style.transform = "translateY(-800%)";
   buttonStart.innerHTML = "ENJOY!";
-  if (currentNumber < singerDetails.length) {
+  if (currentNumber <= singerDetails.length+1) {
     let item = singerDetails[currentNumber];
     // item.img.sort( () => Math.random()- .5 );randomize later
     // console.log(item);
@@ -29,8 +29,8 @@ const start = () => {
       render(audio);
     }, 15000);
   } else {
-    // console.log("finished");
-    window.location.relaod();
+    console.log("finished");
+    
   }
 };
 //
@@ -40,11 +40,12 @@ const clickImage = (item, audio) => {
   imagesTarget.forEach((el, i) => {
     el.addEventListener("click", () => {
       // console.log("clicked");
-      render(audio);
+      
       if (i === item.correct) {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
       }
+      render(audio);
       // console.log(singerDetails);
     });
   });
