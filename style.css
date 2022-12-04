@@ -6,6 +6,12 @@ body {
   background-color: #f2efea;
   max-height: 100vh;
 }
+/* #user{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: black;
+} */
 .first {
   position: absolute;
   z-index: 2;
