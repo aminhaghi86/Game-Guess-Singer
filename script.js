@@ -32,17 +32,28 @@ form.onsubmit = (e) => {
   }
 };
 //
+const message = () => {
+  contents.style.display = "none";
+  document.getElementById("progressbar3").style.display = "none";
+  const parentDiv = document.getElementById("parent");
+  const resetBtn = document.createElement("button");
+  resetBtn.innerHTML = "Play Again";
+  parentDiv.append(resetBtn);
+  resetBtn.onclick = () => {
+    window.location.reload();
+  };
+};
+//
 const start = () => {
+  if (currentNumber === singerDetails.length) return message();
   const uservalue = JSON.parse(sessionStorage.getItem("username"));
   const userEl = document.getElementById("user");
   userEl.innerHTML = `USER:${uservalue.username}`;
   buttonStart.style.transform = "translateY(-800%)";
   buttonStart.innerHTML = "ENJOY!";
-  if (currentNumber <= singerDetails.length + 1) {
-    let item = singerDetails[currentNumber];
-    // item.img.sort( () => Math.random()- .5 );randomize later
-    // console.log(item);
-    contents.innerHTML = `
+
+  let item = singerDetails[currentNumber];
+  contents.innerHTML = `
     <div class="image">
        <img class="targt" src="${item.img[0]}" alt="#">
        <img class="targt" src="${item.img[1]}" alt="#">
@@ -50,16 +61,13 @@ const start = () => {
        <img class="targt" src="${item.img[3]}" alt="#">
      </div>
     `;
-    const audio = new Audio(item.audio);
-    audio.play();
-    clickImage(item, audio);
-    createProgressbar("progressbar3", "15s");
-    timer = setTimeout(() => {
-      render(audio);
-    }, 15000);
-  } else {
-    console.log("finished");
-  }
+  const audio = new Audio(item.audio);
+  audio.play();
+  clickImage(item, audio);
+  createProgressbar("progressbar3", "15s");
+  timer = setTimeout(() => {
+    render(audio);
+  }, 15000);
 };
 //
 const clickImage = (item, audio) => {
