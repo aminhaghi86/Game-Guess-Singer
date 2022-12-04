@@ -6,10 +6,33 @@ let currentNumber = 0;
 let scorepoint = 0;
 var timer;
 //
+
+const form = document.getElementById("form");
+
+form.onsubmit = (e) => {
+  e.preventDefault();
+  const inputEl = form.elements.username.value;
+  if (inputEl !== "" && inputEl !== null) {
+    const username = inputEl;
+    sessionStorage.setItem("username", JSON.stringify(username));
+    document.querySelector('.first').style.transform = 'translateY(-100%)';
+  } else {
+    console.log("please enter your name");
+    setTimeout(() => {
+       form.elements.username.style.backgroundColor = 'pink'
+       form.elements.username.placeholder = 'Your Name'
+    }, 100);
+    setTimeout(() => {
+       form.elements.username.style.backgroundColor = 'white'
+       form.elements.username.placeholder = 'Please enter your name'
+    }, 1000);
+  }
+};
+//
 const start = () => {
   buttonStart.style.transform = "translateY(-800%)";
   buttonStart.innerHTML = "ENJOY!";
-  if (currentNumber <= singerDetails.length+1) {
+  if (currentNumber <= singerDetails.length + 1) {
     let item = singerDetails[currentNumber];
     // item.img.sort( () => Math.random()- .5 );randomize later
     // console.log(item);
@@ -30,7 +53,6 @@ const start = () => {
     }, 15000);
   } else {
     console.log("finished");
-    
   }
 };
 //
@@ -40,7 +62,7 @@ const clickImage = (item, audio) => {
   imagesTarget.forEach((el, i) => {
     el.addEventListener("click", () => {
       // console.log("clicked");
-      
+
       if (i === item.correct) {
         scorepoint += 1;
         score.innerHTML = `SCORE : ${scorepoint}`;
