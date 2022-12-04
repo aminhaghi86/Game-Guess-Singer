@@ -15,8 +15,17 @@ form.onsubmit = (e) => {
   if (inputEl !== "" && inputEl !== null) {
     const username = inputEl;
     sessionStorage.setItem("username", JSON.stringify(username));
+    document.querySelector('.first').style.transform = 'translateY(-100%)';
   } else {
     console.log("please enter your name");
+    setTimeout(() => {
+       form.elements.username.style.backgroundColor = 'pink'
+       form.elements.username.placeholder = 'Your Name'
+    }, 100);
+    setTimeout(() => {
+       form.elements.username.style.backgroundColor = 'white'
+       form.elements.username.placeholder = 'Please enter your name'
+    }, 1000);
   }
 };
 //
