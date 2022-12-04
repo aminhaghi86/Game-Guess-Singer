@@ -1,4 +1,4 @@
-export let singerDetails = [
+export const singerDetails = [
   {
     id: 1,
     img: [
